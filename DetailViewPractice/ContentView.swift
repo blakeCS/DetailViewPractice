@@ -22,12 +22,12 @@ struct ContentView: View {
             List(0..<videoTitles.count, id: \.self) { index in
                     VStack{
                         // Video Title. Should be bold
-                        Text(videoData[0])
+                        Text(videoTitles[index])
                             .fontWeight(.bold)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         HStack{
                             // Image size 100 x 60. Vertical padding of 5
-                            Image(videoData[0])
+                            Image(videoTitles[index])
                                 .resizable()
                                 .frame(width:100, height:60)
                                 .padding(.vertical, 5)
@@ -38,11 +38,11 @@ struct ContentView: View {
 
 
                                 // Video Dates. Should be secondary color
-                                Text(videoData[1])
+                                Text(uploadDates[index])
                                     .foregroundColor(.secondary)
 
                                 // Video duration. Should be secondary color
-                                Text(videoData[2])
+                                Text(duration[index])
                                     .multilineTextAlignment(.leading)
                                     .foregroundColor(.secondary)
                             }
@@ -64,11 +64,10 @@ struct ContentView: View {
                                 }
                         }
                     }
-                }
-
-               // Stylize the list
-            }.listStyle(.plain)
-             .navigationTitle("SwiftUI Tutorial Videos")
+                // Stylize the list
+                }.listStyle(.plain)
+                .navigationTitle("SwiftUI Tutorial Videos")
+            }
     }
 }
 
